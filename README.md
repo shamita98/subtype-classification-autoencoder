@@ -17,6 +17,13 @@ TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framewor
 - [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
 - [`data_cleaning_splitting.ipynb`](jupyter_notebook/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
 
-### Differentially Expressed Gene Identification
+### Differentially Expressed Gene (DEG) Identification
+DEGs were identified from the raw counts of the training set using the `DESeq2` package in R. Test set was not included here to avoid data leakage during AE-RF model training. Here are the steps performed for finding DEGs across more than two groups after running DESeq2 analysis:
 
+1. For each reference subtype, perform pairwise comparisons with all other subtypes.
+2. Identify upregulated and downregulated genes for each pairwise comparison based on:
+  * Log2 fold change threshold (e.g., > 1 or < −1) for biological significance
+  * Adjusted p-value threshold (e.g., < 0.05) for statistical significance.
+3. Retain only genes that are consistently up- or downregulated across all comparisons with the reference subtype.
+4. Combine DEGs from all subtypes to obtain a final set of genes for downstream analysis.
 
