@@ -11,9 +11,12 @@ The proposed approach is demonstrated on breast cancer subtypes of TCGA-BRCA coh
 ## Methodology
 
 ### Dataset
-TCGA-BRCA dataset is used here to implement and evaluate the proposed AE-RF framework. It includes RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% and 30% test set. Raw counts were used for conducting differential gene expression analysis and implementing appropriate normalization pipeline for downstream machine learning models.
+TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framework. It includes RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
 
 #### Code Files and Description
 - [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
 - [`data_cleaning_splitting.ipynb`](jupyter_notebook/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
+
+### Differentially Expressed Gene Identification
+
 
