@@ -11,19 +11,29 @@ The proposed approach is demonstrated on breast cancer subtypes of TCGA-BRCA coh
 ## Methodology
 
 ### Dataset
-TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framework. It includes RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
-
-#### Code Files and Description
-- [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
-- [`data_cleaning_splitting.ipynb`](jupyter_notebook/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
+TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framework. It was retrieved from GDC Data Portal using `TCGAbiolinks`, and includes whole transcriptome RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
 
 ### Differentially Expressed Gene (DEG) Identification
-DEGs were identified from the raw counts of the training set using the `DESeq2` package in R. Test set was not included here to avoid data leakage during AE-RF model training. Here are the steps performed for finding DEGs across more than two groups after running DESeq2 analysis:
+DEGs were identified from the raw counts of the training set using the `DESeq2` package in R. Breast cancer has four major molecular subtypes: Luminal A, Luminal B, HER2-enriched and Basal-like. Here are the steps performed for finding DEGs across the subtypes after running DESeq2 differential gene expression analysis:
 
-1. For each reference subtype, perform pairwise comparisons with all other subtypes.
+1. For each reference subtype, perform pairwise comparison with each of the other subtypes.
 2. Identify upregulated and downregulated genes for each pairwise comparison based on:
    * Log2 fold change > 1 and < −1 for biological significance
    * Adjusted p-value < 0.05 for statistical significance.
 3. Retain only genes that are consistently up- or downregulated across all comparisons with the reference subtype.
 4. Combine DEGs from all subtypes to obtain a final set of genes for downstream analysis.
 
+### AE-RF Model Architecture
+To be updated soon...
+
+## Code Files
+- [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
+- [`data_cleaning_splitting.ipynb`](jupyter_notebook/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
+- [`finding_degs_using_deseq2.R`](R_scripts/finding_degs_using_deseq2.R) – Finds DEGs from the whole transcriptome using `DESeq2`. 
+- [`AE_RF_classification.ipynb`](jupyter_notebook/AE_RF_classification.ipynb) – Normalizes RNA-Seq raw counts, trains AE-RF, evaluates on test set, and analyzes model performance
+
+## Future Improvements
+To be updated soon...
+
+## References
+To be updated soon...
