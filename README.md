@@ -28,9 +28,9 @@ To be updated soon...
 
 ## Code Files
 - [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
-- [`data_cleaning_splitting.ipynb`](jupyter_notebook/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
+- [`data_cleaning_splitting.ipynb`](jupyter_notebooks/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
 - [`finding_degs_using_deseq2.R`](R_scripts/finding_degs_using_deseq2.R) – Finds DEGs from the whole transcriptome using `DESeq2`. 
-- [`AE_RF_classification.ipynb`](jupyter_notebook/AE_RF_classification.ipynb) – Normalizes RNA-Seq raw counts, trains AE-RF, evaluates on test set, and analyzes model performance
+- [`AE_RF_classification.ipynb`](jupyter_notebooks/AE_RF_classification.ipynb) – Normalizes RNA-Seq raw counts, trains AE-RF, evaluates on test set, and analyzes model performance
 
 ## Future Improvements
 To be updated soon...
