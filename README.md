@@ -1,7 +1,16 @@
 # Hybrid Autoencoder–Random Forest Approach for Cancer Subtype Classification from RNA-Seq Data
 
 ## Problem Statement
-Cancer is a heterogeneous disease with several subtypes, each associated with a distinct gene expression profile. Subtype classification is essential for guiding personalized treatment. RNA-Seq is a powerful tool to measure overall gene expression changes across the whole transcriptome, making it a valuable source of information for subtype classification. However, its high-dimensionality poses a challenge to building computationally efficient classification frameworks, prompting current approaches to focus on few biomarkers which might be insufficient for capturing the complex molecular differences between cancer subtypes.
+Cancer is a heterogeneous disease with several subtypes, each associated with a distinct gene expression profile. Subtype classification is essential for guiding personalized treatment. RNA-Seq provides a comprehensive view of gene expression across the transcriptome, making it a powerful tool for this task. However, its high-dimensionality poses a challenge to building computationally efficient classification models.
 
 ## Proposed Solution
-To tackle the high-dimensionality of RNA-Seq data, this project explores a hybrid autoenc0
+To tackle the high-dimensionality of RNA-Seq data, this project explores a hybrid autoencoder-random (AE-RF) framework leveraging differentially expressed genes (DEGs). Autoencoder is a a neural network used for unsupervised learning tasks like dimensionality reduction which is a key part of this project. Here, we use an autoencoder to extract a compact set of relevant features from RNA-Seq data for downstream classification by a random forest. To build a simple and efficient autoencoder, we reduce the initial number of input genes by selecting only DEGs from the whole transcriptome.
+
+The proposed approach is demonstrated on breast cancer subtypes as a case study, but it can be applied to other cancer types with whole-transcriptome RNA-Seq data.
+
+## Methodology
+
+### Dataset
+
+
+
