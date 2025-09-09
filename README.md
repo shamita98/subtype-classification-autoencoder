@@ -22,8 +22,8 @@ DEGs were identified from the raw counts of the training set using the `DESeq2` 
 
 1. For each reference subtype, perform pairwise comparisons with all other subtypes.
 2. Identify upregulated and downregulated genes for each pairwise comparison based on:
-  * Log2 fold change threshold (e.g., > 1 or < −1) for biological significance
-  * Adjusted p-value threshold (e.g., < 0.05) for statistical significance.
+   * Log2 fold change > 1 and < −1 for biological significance
+   * Adjusted p-value < 0.05 for statistical significance.
 3. Retain only genes that are consistently up- or downregulated across all comparisons with the reference subtype.
 4. Combine DEGs from all subtypes to obtain a final set of genes for downstream analysis.
 
