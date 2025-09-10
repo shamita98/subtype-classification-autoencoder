@@ -68,6 +68,6 @@ conda activate breast_subtype_ae_proj_env
 2. [Bioinformagician: Tutorial on DESeq2 Differential Gene Expression Analysis](https://www.youtube.com/watch?v=OzNzO8qwwp0)
 3. [Tutorial on Autoencoder Feature Extraction for Classification](https://machinelearningmastery.com/autoencoder-for-classification/)
 4. Related papers on breast cancer subtype classification with autoencoders:
-  * [AFExNet: An Adversarial Autoencoder for Differentiating Breast Cancer Sub-types and Extracting Biologically Relevant Genes](https://ieeexplore.ieee.org/abstract/document/9378938)
-  * [Deep Learning Based Model for Breast Cancer Subtype Classification](https://arxiv.org/abs/2111.03923)
-  * [Moanna: Multi-Omics Autoencoder-Based Neural Network Algorithm for Predicting Breast Cancer Subtypes](https://ieeexplore.ieee.org/document/10029336)
+    * [AFExNet: An Adversarial Autoencoder for Differentiating Breast Cancer Sub-types and Extracting Biologically Relevant Genes](https://ieeexplore.ieee.org/abstract/document/9378938)
+    * [Deep Learning Based Model for Breast Cancer Subtype Classification](https://arxiv.org/abs/2111.03923)
+    * [Moanna: Multi-Omics Autoencoder-Based Neural Network Algorithm for Predicting Breast Cancer Subtypes](https://ieeexplore.ieee.org/document/10029336)
