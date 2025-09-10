@@ -11,7 +11,7 @@ The proposed approach is demonstrated on breast cancer subtypes of TCGA-BRCA coh
 ## Methodology
 
 ### Dataset
-TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framework. It was retrieved from GDC Data Portal using `TCGAbiolinks`, and includes whole transcriptome RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
+TCGA-BRCA dataset is used here to train and evaluate the proposed AE-RF framework. It was retrieved from GDC Data Portal using `TCGAbiolinks`, and includes whole transcriptome RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted instead of TPM- or FPKM-normalized counts for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
 
 ### Differentially Expressed Gene (DEG) Identification
 DEGs were identified from the raw counts of the training set using the `DESeq2` package in R. Breast cancer has four major molecular subtypes: Luminal A, Luminal B, HER2-enriched and Basal-like. Here are the steps performed for finding DEGs across the subtypes after running DESeq2 differential gene expression analysis:
