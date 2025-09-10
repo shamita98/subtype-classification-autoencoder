@@ -21,19 +21,52 @@ DEGs were identified from the raw counts of the training set using the `DESeq2` 
    * Log2 fold change > 1 and < −1 for biological significance
    * Adjusted p-value < 0.05 for statistical significance.
 3. Retain only genes that are consistently up- or downregulated across all comparisons with the reference subtype.
-4. Combine DEGs from all subtypes to obtain a final set of genes for downstream analysis.
+4. Combine DEGs from all subtypes to obtain a final set of genes for model training.
 
 ### AE-RF Model Architecture
 ![Model Architecture](model_architecture.png)
 
+Autoencoder and random forest were implemented using `TensorFlow` and `scikit-learn` Python libraries respectively.
+
+Autoencoder:
+The autoencoder comprises encoder, decoder and bottleneck layer. The encoder compresses input features (DEGs in this case) into a lower-dimensional representation matching the bottleneck layer size. The decoder then reconstructs the input data from the bottleneck layer’s compressed features. During autoencoder training, the bottleneck layer learns features that minimize the reconstruction error between the input and reconstructured output. The architecture of the autoencoder is kept simple with only one dense layer in encoder and decoder each, since the initial input dimension has been reduced by 
+
+Random Forest:
+The random forest is an ensemble machine learning model that is easy to train; is not sensitive to feature scaling; and can learn complex non-linear relationships. In this framework, random forest is trained on the bottleneck layer's features for subtype classification.
+
 ## Code Files
-- [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
-- [`data_cleaning_splitting.ipynb`](jupyter_notebooks/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
-- [`finding_degs_using_deseq2.R`](R_scripts/finding_degs_using_deseq2.R) – Finds DEGs from the whole transcriptome using `DESeq2`. 
-- [`AE_RF_classification.ipynb`](jupyter_notebooks/AE_RF_classification.ipynb) – Normalizes RNA-Seq raw counts, trains AE-RF, evaluates on test set, and analyzes model performance
+*  [`tcga_brca_gdc_retrieval.R`](R_scripts/tcga_brca_gdc_retrieval.R) – Retrieves TCGA-BRCA data from GDC Data Portal using `TCGAbiolinks`.  
+*  [`data_cleaning_splitting.ipynb`](jupyter_notebooks/data_cleaning_splitting.ipynb) – Cleans the TCGA-BRCA dataset and splits it into training and test sets.
+*  [`finding_degs_using_deseq2.R`](R_scripts/finding_degs_using_deseq2.R) – Finds DEGs from the whole transcriptome using `DESeq2`. 
+*  [`AE_RF_classification.ipynb`](jupyter_notebooks/AE_RF_classification.ipynb) – Provides a detailed workflow on feature engineering, AE-RF model training, cross-validation, test set evaluation, and model performance analysis
 
 ## Future Improvements
-To be updated soon...
+
+## Environment Setup
+
+This project uses both R (for data retrieval and DEG analysis) and Python (for data preprocessing, AE-RF model training and evaluation).  
+The required dependencies for each environment are provided in the repository.
+
+1. R Environment
+Dependencies are specified in the [`renv.lock`](renv.lock) file. Open an R session, and run:
+
+```r
+install.packages("renv")
+renv::restore(lockfile = "/path/to/your/renv.lock")
+
+2. Python Environment
+Dependencies are specified in the [`environment.yml`](`environment.yml) file. Execute the following code in your terminal:
+
+```bash
+conda env create -f environment.yml
+conda activate breast_subtype_ae_proj_env
+
 
 ## References
-To be updated soon...
+1. [Bioinformagician: Tutorial on TCGA Data Retrieval using TCGAbiolinks R package](https://www.youtube.com/watch?v=UWXv9dUpxNE&t=26s)
+2. [Bioinformagician: Tutorial on DESeq2 Differential Gene Expression Analysis](https://www.youtube.com/watch?v=OzNzO8qwwp0)
+3. [Tutorial on Autoencoder Feature Extraction for Classification](https://machinelearningmastery.com/autoencoder-for-classification/)
+4. Related papers on breast cancer subtype classification with autoencoders:
+  * [AFExNet: An Adversarial Autoencoder for Differentiating Breast Cancer Sub-types and Extracting Biologically Relevant Genes](https://ieeexplore.ieee.org/abstract/document/9378938)
+  * [Deep Learning Based Model for Breast Cancer Subtype Classification](https://arxiv.org/abs/2111.03923)
+  * [Moanna: Multi-Omics Autoencoder-Based Neural Network Algorithm for Predicting Breast Cancer Subtypes](https://ieeexplore.ieee.org/document/10029336)
