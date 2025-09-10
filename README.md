@@ -26,12 +26,14 @@ DEGs were identified from the raw counts of the training set using the `DESeq2` 
 ### AE-RF Model Architecture
 ![Model Architecture](model_architecture.png)
 
-Autoencoder and random forest were implemented using `TensorFlow` and `scikit-learn` Python libraries respectively.
+Autoencoder and random forest were implemented using Python libraries `TensorFlow` and `scikit-learn` respectively.
 
 Autoencoder:
+
 The autoencoder comprises encoder, decoder and bottleneck layer. The encoder compresses input features (DEGs in this case) into a lower-dimensional representation matching the bottleneck layer size. The decoder then reconstructs the input data from the bottleneck layer’s compressed features. During autoencoder training, the bottleneck layer learns features that minimize the reconstruction error between the input and reconstructured output. The architecture of the autoencoder is kept simple with only one dense layer in encoder and decoder each, since the initial input dimension has been reduced by 
 
 Random Forest:
+
 The random forest is an ensemble machine learning model that is easy to train; is not sensitive to feature scaling; and can learn complex non-linear relationships. In this framework, random forest is trained on the bottleneck layer's features for subtype classification.
 
 ## Code Files
