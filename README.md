@@ -53,6 +53,7 @@ Dependencies are specified in the [`renv.lock`](renv.lock) file. Open an R sessi
 ```r
 install.packages("renv")
 renv::restore(lockfile = "/path/to/your/renv.lock")
+```
 
 2. Python Environment
 Dependencies are specified in the [`environment.yml`](`environment.yml) file. Execute the following code in your terminal:
@@ -60,7 +61,7 @@ Dependencies are specified in the [`environment.yml`](`environment.yml) file. Ex
 ```bash
 conda env create -f environment.yml
 conda activate breast_subtype_ae_proj_env
-
+```
 
 ## References
 1. [Bioinformagician: Tutorial on TCGA Data Retrieval using TCGAbiolinks R package](https://www.youtube.com/watch?v=UWXv9dUpxNE&t=26s)
