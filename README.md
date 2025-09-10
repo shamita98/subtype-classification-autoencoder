@@ -40,8 +40,6 @@ The random forest is an ensemble machine learning model that is easy to train; i
 *  [`finding_degs_using_deseq2.R`](R_scripts/finding_degs_using_deseq2.R) – Finds DEGs from the whole transcriptome using `DESeq2`. 
 *  [`AE_RF_classification.ipynb`](jupyter_notebooks/AE_RF_classification.ipynb) – Provides a detailed workflow on feature engineering, AE-RF model training, cross-validation, test set evaluation, and model performance analysis
 
-## Future Improvements
-
 ## Environment Setup
 
 This project uses both R (for data retrieval and DEG analysis) and Python (for data preprocessing, AE-RF model training and evaluation).  
