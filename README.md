@@ -11,10 +11,10 @@ The proposed approach is demonstrated on TCGA-BRCA breast cancer dataset as an e
 ## Methodology
 
 ### Dataset
-TCGA-BRCA dataset was retrieved from GDC Data Portal using `TCGAbiolinks` package, and includes whole transcriptome RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted instead of TPM- or FPKM-normalized counts for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
+TCGA-BRCA dataset was retrieved from GDC Data Portal using `TCGAbiolinks` R package, and includes whole transcriptome RNA-Seq raw counts and subtype labels of breast cancer patients. The dataset was cleaned, then split into 70% training and 30% test sets. Raw counts were opted instead of TPM- or FPKM-normalized counts for conducting differential gene expression analysis and implementing an appropriate normalization pipeline for downstream machine learning models.
 
 ### Differentially Expressed Gene (DEG) Identification
-DEGs were identified from the raw counts of the training set using the `DESeq2` package. Breast cancer has four major molecular subtypes: Luminal A, Luminal B, HER2-enriched and Basal-like. Here are the steps performed for finding DEGs of the subtypes after running DESeq2 differential gene expression analysis:
+DEGs were identified from the raw counts of the training set using `DESeq2` R package. Breast cancer has four major molecular subtypes: Luminal A, Luminal B, HER2-enriched and Basal-like. Here are the steps performed for finding DEGs of the subtypes after running DESeq2 differential gene expression analysis:
 
 1. For each reference subtype, perform pairwise comparison with each of the other subtypes.
 2. Identify upregulated and downregulated genes for each pairwise comparison based on:
