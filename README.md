@@ -26,6 +26,10 @@ DEGs were identified from the raw counts of the training set using the `DESeq2` 
 ### AE-RF Model Architecture
 ![Model Architecture](model_architecture.png)
 
+<p align="center">
+  <img src="model_architecture.png" alt="AE-RF Model Architecture" width="500"/>
+</p>
+
 Autoencoder and random forest were implemented using `TensorFlow` and `scikit-learn` Python libraries respectively.
 
 Autoencoder:
